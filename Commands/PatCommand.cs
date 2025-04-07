@@ -40,7 +40,7 @@ internal sealed class PatCommand : BaseCommand
 
             if (ctx.Member.Id == user.Id)
             {
-                _ = await this.RespondOrEdit(new DiscordMessageBuilder().WithEmbed(new DiscordEmbedBuilder
+                _ = await this.RespondOrEdit(new DiscordMessageBuilder().AddEmbed(new DiscordEmbedBuilder
                 {
                     Title = self_phrases.SelectRandom().Build(
                         new TVar("User1", ctx.Member.DisplayName),
@@ -53,7 +53,7 @@ internal sealed class PatCommand : BaseCommand
 
             var response = await SocialCommandAbstractions.GetGif(ctx.Bot, "pat");
 
-            _ = await this.RespondOrEdit(new DiscordMessageBuilder().WithEmbed(new DiscordEmbedBuilder
+            _ = await this.RespondOrEdit(new DiscordMessageBuilder().AddEmbed(new DiscordEmbedBuilder
             {
                 Description = phrases.SelectRandom().Build(
                     new TVar("User1", ctx.User.Mention, false),
